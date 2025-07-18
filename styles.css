@@ -58,17 +58,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: logoRotate 10s linear infinite;
-    overflow: hidden; /* Ensure image stays within bounds */
+    overflow: hidden;
 }
 
 .logo-icon img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* or 'cover' depending on the desired fit */
+    object-fit: contain;
 }
-
-
 
 .logo-icon i {
     position: absolute;
@@ -108,8 +105,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* height: 75px;
-    width: 100px; */
 }
 
 .nav-menu {
@@ -454,39 +449,6 @@ body {
     font-weight: bold;
 }
 
-/* Brands Section */
-.brands {
-    padding: 80px 0;
-    background: white;
-}
-
-.brands-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.brand-item {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.brand-item:hover {
-    border-color: #007bff;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15);
-}
-
-.brand-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #333;
-}
-
 /* About Section */
 .about {
     padding: 80px 0;
@@ -718,17 +680,31 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .navbar {
+        height: 70px;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .logo-icon {
+        width: 70px;
+        height: 50px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background: white;
+        background: rgba(255, 255, 255, 0.95);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
+        padding: 1.5rem 0;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -736,7 +712,11 @@ body {
     }
 
     .nav-menu li {
-        margin: 1rem 0;
+        margin: 0.75rem 0;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
     }
 
     .nav-toggle {
@@ -755,6 +735,11 @@ body {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    .hero {
+        min-height: auto;
+        padding: 80px 0 60px;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -762,11 +747,15 @@ body {
     }
 
     .title-main {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .title-sub {
         font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
     }
 
     .hero-buttons {
@@ -776,20 +765,35 @@ body {
 
     .floating-card {
         position: static;
-        margin: 1rem;
+        margin: 0.5rem auto;
         display: inline-block;
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .services {
+        padding: 60px 0;
     }
 
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .service-image {
         height: 150px;
     }
 
-    .brands-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    .about {
+        padding: 60px 0;
     }
 
     .about-content {
@@ -797,14 +801,45 @@ body {
         gap: 2rem;
     }
 
+    .about-text h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .about-features {
+        align-items: center;
+    }
+
+    .image-placeholder {
+        height: 200px;
+    }
+
+    .contact {
+        padding: 60px 0;
+    }
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .footer {
+        padding: 40px 0 20px;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 1.5rem;
     }
 }
 
@@ -813,12 +848,30 @@ body {
         padding: 0 15px;
     }
 
+    .navbar {
+        height: 60px;
+    }
+
+    .logo-icon {
+        width: 60px;
+        height: 40px;
+    }
+
+    .nav-menu {
+        top: 60px;
+        padding: 1rem 0;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
     .hero {
-        padding: 100px 0 60px;
+        padding: 60px 0 40px;
     }
 
     .title-main {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .title-sub {
@@ -826,18 +879,41 @@ body {
     }
 
     .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    .floating-card {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .floating-card i {
+        font-size: 1.5rem;
+    }
+
+    .floating-card h3 {
         font-size: 1rem;
     }
 
-    .services,
-    .brands,
-    .about,
-    .contact {
-        padding: 60px 0;
+    .floating-card p {
+        font-size: 0.8rem;
+    }
+
+    .services {
+        padding: 40px 0;
     }
 
     .section-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .section-header p {
+        font-size: 0.9rem;
     }
 
     .service-card {
@@ -848,12 +924,102 @@ body {
         height: 120px;
     }
 
-    .brand-item {
-        padding: 1.5rem;
+    .service-icon {
+        width: 60px;
+        height: 60px;
     }
 
-    .contact-form {
-        padding: 1.5rem;
+    .service-icon i {
+        font-size: 1.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .service-card li {
+        font-size: 0.9rem;
+    }
+
+    .about {
+        padding: 40px 0;
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+
+    .feature i {
+        font-size: 1rem;
+    }
+
+    .feature span {
+        font-size: 0.9rem;
+    }
+
+    .image-placeholder {
+        height: 150px;
+    }
+
+    .image-placeholder i {
+        font-size: 3rem;
+    }
+
+    .image-placeholder p {
+        font-size: 1rem;
+    }
+
+    .contact {
+        padding: 40px 0;
+    }
+
+    .contact-item {
+        padding: 1rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-icon i {
+        font-size: 1.2rem;
+    }
+
+    .contact-details h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-details p {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 30px 0 15px;
+    }
+
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .footer-section p,
+    .footer-section ul li a {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
     }
 }
 
