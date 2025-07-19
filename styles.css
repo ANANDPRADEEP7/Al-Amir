@@ -153,7 +153,7 @@ body {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #018dd9 0%, #764ba2 100%);
     display: flex;
     align-items: center;
     padding: 120px 0 80px;
@@ -693,23 +693,44 @@ body {
         height: 50px;
     }
 
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.95);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 1.5rem 0;
-        z-index: 999;
-    }
+ .nav-menu {
+    position: fixed;
+    left: 100%;
+    top: 70px;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95); /* Soft white background */
+    width: 100%;
+    max-width: 400px; /* Limit the width for better aesthetics */
+    text-align: center;
+    transition: left 0.4s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    padding: 2rem 1rem;
+    z-index: 999;
+    border-radius: 8px 0 0 8px; /* Rounded left side */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    .nav-menu.active {
-        left: 0;
-    }
+/* Optional: Active class to slide it into view */
+.nav-menu.active {
+    left: calc(100% - 400px); /* Slide in from right */
+}
+
+.nav-menu a {
+    display: block;
+    padding: 0.75rem 0;
+    margin: 0.5rem 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #f0f0f0;
+    color: #e74c3c;
+}
+
 
     .nav-menu li {
         margin: 0.75rem 0;
