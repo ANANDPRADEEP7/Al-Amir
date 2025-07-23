@@ -1225,3 +1225,22 @@ html {
 .contact-info i {
     margin-right: 5px;
 }
+
+.contact-section {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+.contact-section a {
+    text-decoration: none;
+}
+.contact-section img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.2s;
+    border-radius: 10px; /* Adds curved edges */
+}
+.contact-section img:hover {
+    transform: scale(1.1);
+}
