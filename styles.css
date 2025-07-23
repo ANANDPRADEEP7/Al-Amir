@@ -1212,3 +1212,16 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #0056b3, #e55a2b);
 }
+.contact-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #007BFF;
+    margin-top: 20px;
+    text-align: center;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
+.contact-info i {
+    margin-right: 5px;
+}
