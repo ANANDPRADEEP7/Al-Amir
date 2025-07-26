@@ -10,15 +10,12 @@
     <link rel="icon" type="image/png" href="AAE-Logo.png">
 </head>
 <body>
-    <!-- Tools Section (Updated at the top) -->
-  
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <div class="logo-icon">
-                    <a href="#home"><img src="AAE-Logo.png" alt=""></a>
+                    <a href="#home"><img src="AAE-Logo.png" alt="Al Amir Logo"></a>
                 </div>
             </div>
             <ul class="nav-menu">
@@ -35,7 +32,7 @@
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
-            <div class="nav-toggle">
+            <div class="nav-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -52,7 +49,7 @@
                     <span class="title-sub">الأمير الكتروميكانيكية ذ.م.م</span>
                 </h1>
                 <p class="hero-description">
-                    Professional Ship Services, AC Services, Electrical, Plumbing, and Maintenance Solutions in Fujairah,UAE
+                    Professional Ship Services, AC Services, Electrical, Plumbing, and Maintenance Solutions in Fujairah, UAE
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Connect Us</a>
@@ -79,144 +76,171 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-
-  <section class="tools-section">
+    <!-- Tools Section -->
+    <section class="tools-section">
         <div class="container">
             <h2>Our Industrial Tools</h2>
-            <img src="img1.jpg" alt="Industrial Tools" class="tools-image" style="width: 100%; height: auto;">
-            <p>
-                At Al Amir Electromechanical LLC, we utilize advanced industrial tools to ensure safety and efficiency. Our equipment includes:
-                - <strong>UTI Detector</strong>: Available for rent, featuring MMC tapes and interface detectors. Trusted by surveyors and terminal operations, certified for marine tankers and terminals, with fully calibrated units available for rent.
-                - <strong>Area Gas Monitor</strong>: Monitors gas levels over wide areas with advanced sensors.
-                - <strong>Pressure and Temperature Instruments</strong>: Precision gauges from WIKA for accurate measurements.
-                - <strong>Portable Gas Monitors</strong>: Handheld devices from Honeywell and Riken Keiki for on-the-go gas detection.
-                These tools, provided by trusted brands like Honeywell, Riken Keiki, WIKA, and SIKA, enhance our capability to deliver top-notch services.
-            </p>
+            <div class="tools-image-container">
+                <img src="img1.jpg" alt="Industrial Tools" class="tools-image">
+            </div>
+            <div class="tools-content">
+                <p>
+                    At Al Amir Electromechanical LLC, we utilize advanced industrial tools to ensure safety and efficiency. Our equipment includes:
+                </p>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <i class="fas fa-search"></i>
+                        <h4>UTI Detector</h4>
+                        <p>Available for rent, featuring MMC tapes and interface detectors. Trusted by surveyors and terminal operations, certified for marine tankers and terminals.</p>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <h4>Area Gas Monitor</h4>
+                        <p>Monitors gas levels over wide areas with advanced sensors for maximum safety.</p>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h4>Pressure & Temperature</h4>
+                        <p>Precision gauges from WIKA for accurate measurements in all conditions.</p>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Portable Gas Monitors</h4>
+                        <p>Handheld devices from Honeywell and Riken Keiki for on-the-go gas detection.</p>
+                    </div>
+                </div>
+                <div class="tools-brands">
+                    <p><strong>Trusted Brands:</strong> Honeywell, Riken Keiki, WIKA, SIKA</p>
+                </div>
+            </div>
             <div class="contact-info">
-            <p><strong>Contact Us:</strong> 
-                <span style="margin-right: 10px;"><i class="fas fa-phone" style="color: #007BFF;"></i> <a href="tel:+971543706123" style="color: #007BFF; text-decoration: none;">+971 543706123</a></span> | 
-                <span><i class="fas fa-envelope" style="color: #007BFF;"></i> <a href="mailto:alamirsales25@gmail.com" style="color: #007BFF; text-decoration: none;">alamirsales25@gmail.com</a></span>
-            </p>
-        </div>
+                <p><strong>Contact Us:</strong> 
+                    <span class="contact-item">
+                        <i class="fas fa-phone"></i> 
+                        <a href="tel:+971543706123">+971 543706123</a>
+                    </span>
+                    <span class="contact-separator">|</span>
+                    <span class="contact-item">
+                        <i class="fas fa-envelope"></i> 
+                        <a href="mailto:alamirsales25@gmail.com">alamirsales25@gmail.com</a>
+                    </span>
+                </p>
+            </div>
         </div>
     </section>
 
-
+    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
                 <h2>Our Services</h2>
                 <p>Comprehensive electromechanical solutions for your needs</p>
             </div>
-           <div class="services-grid">
-            <div class="service-card">
-    <img src="ship.jpg" alt="Ship Services" class="service-image">
-    <div class="service-icon">
-        <i class="fas fa-ship"></i>
-    </div>
-    <h3>Ship Services</h3>
-    <ul>
-        <li>Gas Monitor for Purge Operation and Cargo Operation</li>
-        <li>Multi-Gas Monitor for Rent (HE, CO, H₂S, and O₂ Covered)</li>
-        <li>Fully Calibrated, Job-Ready Rental Monitors for Gases That Matter Most</li>
-        <li>Fast Delivery, Flexible Rental Options for Any Worksite (From One Day to One Year)</li>
-        
-    </ul>
-</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="ship.jpg" alt="Ship Services" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Ship Services</h3>
+                    <ul>
+                        <li>Gas Monitor for Purge Operation and Cargo Operation</li>
+                        <li>Multi-Gas Monitor for Rent (HE, CO, H₂S, and O₂ Covered)</li>
+                        <li>Fully Calibrated, Job-Ready Rental Monitors</li>
+                        <li>Fast Delivery, Flexible Rental Options</li>
+                    </ul>
+                </div>
 
-    <div class="service-card">
-        <img src="https://i.pinimg.com/736x/d2/94/7c/d2947cf4a6f51272c2c694ab48373224.jpg" alt="AC Services" class="service-image">
-        <div class="service-icon">
-            <i class="fas fa-snowflake"></i>
-        </div>
-        <h3>AC Services</h3>
-        <ul>
-            <li>AC Repair Service</li>
-            <li>AC Installation Services</li>
-            <li>AC Uninstallation Services</li>
-            <li>AC Piping Services</li>
-            <li>AC Gas Filling Services</li>
-            <li>AC AMC Services</li>
-        </ul>
-    </div>
+                <div class="service-card">
+                    <img src="https://i.pinimg.com/736x/d2/94/7c/d2947cf4a6f51272c2c694ab48373224.jpg" alt="AC Services" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>AC Services</h3>
+                    <ul>
+                        <li>AC Repair Service</li>
+                        <li>AC Installation Services</li>
+                        <li>AC Uninstallation Services</li>
+                        <li>AC Piping Services</li>
+                        <li>AC Gas Filling Services</li>
+                        <li>AC AMC Services</li>
+                    </ul>
+                </div>
 
-    <div class="service-card">
-        <img src="https://i.pinimg.com/1200x/0b/69/b6/0b69b6436d2c4be90bfd5bbae5dc8cd7.jpg" alt="Electrical Services" class="service-image">
-        <div class="service-icon">
-            <i class="fas fa-bolt"></i>
-        </div>
-        <h3>Electrical Services</h3>
-        <ul>
-            <li>Electrical Installations</li>
-            <li>Wiring & Rewiring</li>
-            <li>Switch & Socket Installation</li>
-            <li>Electrical Maintenance</li>
-            <li>Electrical Repairs</li>
-        </ul>
-    </div>
+                <div class="service-card">
+                    <img src="https://i.pinimg.com/1200x/0b/69/b6/0b69b6436d2c4be90bfd5bbae5dc8cd7.jpg" alt="Electrical Services" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electrical Services</h3>
+                    <ul>
+                        <li>Electrical Installations</li>
+                        <li>Wiring & Rewiring</li>
+                        <li>Switch & Socket Installation</li>
+                        <li>Electrical Maintenance</li>
+                        <li>Electrical Repairs</li>
+                    </ul>
+                </div>
 
-    <div class="service-card">
-        <img src="https://i.pinimg.com/736x/f6/76/1d/f6761db73758139be3247097595433b5.jpg" alt="Plumbing Services" class="service-image">
-        <div class="service-icon">
-            <i class="fas fa-wrench"></i>
-        </div>
-        <h3>Plumbing Services</h3>
-        <ul>
-            <li>Pipe Installation</li>
-            <li>Leak Repairs</li>
-            <li>Bathroom Fitting</li>
-            <li>Kitchen Plumbing</li>
-            <li>Water Heater Service</li>
-        </ul>
-    </div>
+                <div class="service-card">
+                    <img src="https://i.pinimg.com/736x/f6/76/1d/f6761db73758139be3247097595433b5.jpg" alt="Plumbing Services" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Plumbing Services</h3>
+                    <ul>
+                        <li>Pipe Installation</li>
+                        <li>Leak Repairs</li>
+                        <li>Bathroom Fitting</li>
+                        <li>Kitchen Plumbing</li>
+                        <li>Water Heater Service</li>
+                    </ul>
+                </div>
 
-    <div class="service-card">
-        <img src="https://i.pinimg.com/1200x/9f/13/7d/9f137d97fbfc2ac2963585389ad7f23e.jpg" alt="Painting Services" class="service-image">
-        <div class="service-icon">
-            <i class="fas fa-paint-roller"></i>
-        </div>
-        <h3>Painting Services</h3>
-        <ul>
-            <li>Interior Painting</li>
-            <li>Exterior Painting</li>
-            <li>Wall Preparation</li>
-            <li>Color Consultation</li>
-            <li>Quality Finishes</li>
-        </ul>
-    </div>
+                <div class="service-card">
+                    <img src="https://i.pinimg.com/1200x/9f/13/7d/9f137d97fbfc2ac2963585389ad7f23e.jpg" alt="Painting Services" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3>Painting Services</h3>
+                    <ul>
+                        <li>Interior Painting</li>
+                        <li>Exterior Painting</li>
+                        <li>Wall Preparation</li>
+                        <li>Color Consultation</li>
+                        <li>Quality Finishes</li>
+                    </ul>
+                </div>
 
-    <div class="service-card">
-        <img src="https://i.pinimg.com/736x/88/33/b1/8833b1d01c392d90f51eb4b789d28b7e.jpg" alt="CCTV Services" class="service-image">
-        <div class="service-icon">
-            <i class="fas fa-video"></i>
-        </div>
-        <h3>CCTV Services</h3>
-        <ul>
-            <li>CCTV Installation</li>
-            <li>Security System Setup</li>
-            <li>Camera Maintenance</li>
-            <li>Monitoring Solutions</li>
-            <li>System Upgrades</li>
-        </ul>
-    </div>
+                <div class="service-card">
+                    <img src="https://i.pinimg.com/736x/88/33/b1/8833b1d01c392d90f51eb4b789d28b7e.jpg" alt="CCTV Services" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>CCTV Services</h3>
+                    <ul>
+                        <li>CCTV Installation</li>
+                        <li>Security System Setup</li>
+                        <li>Camera Maintenance</li>
+                        <li>Monitoring Solutions</li>
+                        <li>System Upgrades</li>
+                    </ul>
+                </div>
 
-    <div class="service-card">
-        <img src="https://i.pinimg.com/1200x/1c/99/e0/1c99e01ef08a95569c52b9a4015f2e83.jpg" alt="Flooring & Tiles" class="service-image">
-        <div class="service-icon">
-            <i class="fas fa-th-large"></i>
-        </div>
-        <h3>Flooring & Tiles</h3>
-        <ul>
-            <li>Tile Installation</li>
-            <li>Floor Renovation</li>
-            <li>Marble & Granite</li>
-            <li>Ceramic Tiles</li>
-            <li>Floor Maintenance</li>
-        </ul>
-    </div>
-</div>
-
+                <div class="service-card">
+                    <img src="https://i.pinimg.com/1200x/1c/99/e0/1c99e01ef08a95569c52b9a4015f2e83.jpg" alt="Flooring & Tiles" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3>Flooring & Tiles</h3>
+                    <ul>
+                        <li>Tile Installation</li>
+                        <li>Floor Renovation</li>
+                        <li>Marble & Granite</li>
+                        <li>Ceramic Tiles</li>
+                        <li>Floor Maintenance</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -269,7 +293,7 @@
                 <p>Get in touch for professional electromechanical services</p>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info-section">
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -285,8 +309,8 @@
                         </div>
                         <div class="contact-details">
                             <h3>Phone</h3>
-                            <p>054-5746123</p>
-                            <p>050-6795124</p>
+                            <p><a href="tel:+971545746123">054-5746123</a></p>
+                            <p><a href="tel:+971506795124">050-6795124</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -295,7 +319,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>alamirelectromechanical@gmail.com</p>
+                            <p><a href="mailto:alamirelectromechanical@gmail.com">alamirelectromechanical@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -304,46 +328,53 @@
                         </div>
                         <div class="contact-details">
                             <h3>Website</h3>
-                            <p>http://amirelectromechanical.com</p>
+                            <p>amirelectromechanical.com</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form>
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+                            </div>
+                            <div class="form-group">
+                                <select id="service" name="service">
+                                    <option value="">Select Service</option>
+                                    <option value="ship">Ship Services</option>
+                                    <option value="ac">AC Services</option>
+                                    <option value="electrical">Electrical Services</option>
+                                    <option value="plumbing">Plumbing Services</option>
+                                    <option value="painting">Painting Services</option>
+                                    <option value="cctv">CCTV Services</option>
+                                    <option value="flooring">Flooring & Tiles</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone">
-                        </div>
-                        <div class="form-group">
-                            <select id="service" name="service">
-                                <option value="">Select Service</option>
-                                <option value="ac">AC Services</option>
-                                <option value="electrical">Electrical Services</option>
-                                <option value="plumbing">Plumbing Services</option>
-                                <option value="painting">Painting Services</option>
-                                <option value="cctv">CCTV Services</option>
-                                <option value="flooring">Flooring & Tiles</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="4"></textarea>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
-    <section class="contact-section">
-        <a href="https://wa.me/971545746123" target="_blank">
-            <img src="WhatsApp.jpg" alt="WhatsApp">
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/971545746123" target="_blank" aria-label="Contact us on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
         </a>
-    </section>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -371,6 +402,7 @@
                 <div class="footer-section">
                     <h3>Services</h3>
                     <ul>
+                        <li>Ship Services</li>
                         <li>AC Services</li>
                         <li>Electrical Work</li>
                         <li>CCTV Installation</li>
@@ -378,9 +410,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>JOJI GEORGE</p>
-                    <p><i class="fas fa-phone"></i> 054-5746123</p>
-                    <p><i class="fas fa-envelope"></i> alamirelectromechanical@gmail.com</p>
+                    <p><strong>JOJI GEORGE</strong></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+971545746123">054-5746123</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:alamirelectromechanical@gmail.com">alamirelectromechanical@gmail.com</a></p>
                     <p><i class="fas fa-map-marker-alt"></i> Fujairah, UAE</p>
                 </div>
             </div>
@@ -390,6 +422,53 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
