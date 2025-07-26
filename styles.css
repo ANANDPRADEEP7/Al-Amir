@@ -392,6 +392,7 @@ body {
 }
 
 .contact-info {
+    /* width: 800px; */
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     padding: 2rem;
     border-radius: 15px;
@@ -1081,78 +1082,67 @@ body {
 /* Mobile Large */
 @media (max-width: 767px) {
     .container {
-        padding: 0 20px;
+        padding: 0 15px;
     }
     
     .hero {
-        padding: 120px 0 80px;
-        margin-bottom: 40px;
+        padding: 120px 0 60px;
+        min-height: 70vh;
     }
     
     .hero-container {
-        padding: 0 20px;
+        padding: 0 15px;
+        gap: 2rem;
     }
     
     .hero-content {
-        padding: 2rem 0;
+        padding: 1rem 0;
     }
     
     .hero-description {
-        margin-bottom: 3rem;
-        padding: 0 1rem;
+        margin-bottom: 2rem;
     }
     
     .hero-buttons {
         justify-content: center;
-        margin-bottom: 2rem;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
     }
     
     .btn {
-        padding: 15px 35px;
-        font-size: 1rem;
-        min-width: 160px;
-        margin: 0.5rem;
+        width: 100%;
+        max-width: 280px;
+        padding: 15px 30px;
     }
     
     .floating-card {
         position: static;
-        margin: 1.5rem auto;
+        margin: 1rem auto;
         max-width: 280px;
         display: block;
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
     }
     
     .hero-image {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
-        padding: 2rem 0;
+        gap: 1rem;
+        padding: 1rem 0;
         min-height: auto;
     }
     
-    .tools-section {
-        padding: 80px 0;
-        margin: 40px 0;
-    }
-    
-    .services {
-        padding: 80px 0;
-        margin: 40px 0;
-    }
-    
-    .about {
-        padding: 80px 0;
-        margin: 40px 0;
-    }
-    
+    .tools-section,
+    .services,
+    .about,
     .contact {
-        padding: 80px 0;
-        margin: 40px 0;
+        padding: 60px 0;
     }
     
     .tools-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .tool-item {
@@ -1176,6 +1166,12 @@ body {
         padding: 2rem;
     }
     
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1197,41 +1193,44 @@ body {
         height: 45px;
     }
     
+    .logo-icon img {
+        height: 60px;
+        width: 60px;
+    }
+    
     .hero {
-        padding: 100px 0 60px;
-        min-height: 80vh;
-        margin-bottom: 30px;
+        padding: 100px 0 50px;
+        min-height: 60vh;
     }
     
     .hero-container {
-        padding: 0 15px;
+        padding: 0 10px;
+        gap: 1.5rem;
     }
     
     .hero-content {
-        padding: 1.5rem 0;
+        padding: 0.5rem 0;
     }
     
     .hero-description {
-        padding: 0 0.5rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding: 0;
     }
     
     .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
+        gap: 0.8rem;
     }
     
     .btn {
-        width: 90%;
-        max-width: 280px;
-        padding: 14px 30px;
+        width: 100%;
+        max-width: 250px;
+        padding: 12px 25px;
+        font-size: 0.95rem;
     }
     
     .floating-card {
-        padding: 1.5rem;
-        margin: 1rem auto;
+        padding: 1.25rem;
+        margin: 0.8rem auto;
         max-width: 260px;
     }
     
@@ -1244,38 +1243,29 @@ body {
     }
     
     .floating-card p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .hero-image {
-        padding: 1.5rem 0;
-        gap: 1rem;
+        padding: 0.5rem 0;
+        gap: 0.8rem;
     }
     
-    .tools-section {
-        padding: 60px 0;
-        margin: 30px 0;
-    }
-    
-    .services {
-        padding: 60px 0;
-        margin: 30px 0;
-    }
-    
-    .about {
-        padding: 60px 0;
-        margin: 30px 0;
-    }
-    
+    .tools-section,
+    .services,
+    .about,
     .contact {
-        padding: 60px 0;
-        margin: 30px 0;
+        padding: 50px 0;
     }
     
-    .tool-item {
-        padding: 1.25rem;
+    .section-header h2,
+    .about-text h2,
+    .tools-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
     
+    .tool-item,
     .service-card {
         padding: 1.25rem;
     }
@@ -1291,18 +1281,6 @@ body {
     
     .service-icon i {
         font-size: 1.5rem;
-    }
-    
-    .contact-item {
-        padding: 1.25rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-    
-    .contact-icon {
-        width: 50px;
-        height: 50px;
     }
     
     .contact-form {
@@ -1337,90 +1315,90 @@ body {
     .whatsapp-float i {
         font-size: 1.5rem;
     }
+    
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .contact-info .contact-item {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    
+    .contact-separator {
+        display: none;
+    }
 }
 
 /* Ultra Small Mobile */
 @media (max-width: 359px) {
     .container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     
     .hero-container,
     .nav-container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     
     .hero {
-        padding: 90px 0 50px;
-        margin-bottom: 20px;
+        padding: 90px 0 40px;
+        min-height: 50vh;
     }
     
     .hero-content {
-        padding: 1rem 0;
+        padding: 0;
     }
     
     .hero-description {
-        margin-bottom: 2rem;
+        margin-bottom: 1.2rem;
     }
     
     .hero-buttons {
-        margin-bottom: 1.5rem;
+        gap: 0.6rem;
     }
     
     .btn {
-        width: 95%;
-        max-width: 250px;
-        padding: 12px 25px;
-        font-size: 0.95rem;
+        width: 100%;
+        max-width: 220px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
     
     .floating-card {
-        margin: 0.75rem auto;
-        padding: 1.25rem;
+        margin: 0.6rem auto;
+        padding: 1rem;
         max-width: 240px;
     }
     
     .hero-image {
-        padding: 1rem 0;
+        padding: 0;
+        gap: 0.6rem;
     }
     
-    .tools-section h2,
-    .section-header h2,
-    .about-text h2 {
-        font-size: 1.75rem;
-        margin-bottom: 2rem;
-    }
-    
-    .tools-section {
-        padding: 50px 0;
-        margin: 20px 0;
-    }
-    
-    .services {
-        padding: 50px 0;
-        margin: 20px 0;
-    }
-    
-    .about {
-        padding: 50px 0;
-        margin: 20px 0;
-    }
-    
+    .tools-section,
+    .services,
+    .about,
     .contact {
-        padding: 50px 0;
-        margin: 20px 0;
+        padding: 40px 0;
+    }
+    
+    .section-header h2,
+    .about-text h2,
+    .tools-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
     }
     
     .contact-form,
     .tool-item,
     .service-card {
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
+        padding: 1rem;
     }
     
     .footer {
-        padding: 40px 0 20px;
-        margin-top: 20px;
+        padding: 40px 0 15px;
     }
 }
 
