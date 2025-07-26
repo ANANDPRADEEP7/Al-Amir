@@ -67,11 +67,11 @@ body {
 }
 
 .logo-icon img {
-    height:100px;
-    width: 100px;
-    max-width: 100px;
+    height: 85px;
+    width: 85px;
     object-fit: contain;
 }
+
 
 .nav-menu {
     display: flex;
