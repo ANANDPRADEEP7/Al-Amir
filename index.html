@@ -4,73 +4,907 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Amir Electromechanical LLC - Professional AC & Electrical Services</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="AAE-Logo.png">
+    
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #ff6b35;
+            --gradient-primary: linear-gradient(135deg, #018dd9 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35, #f7931e);
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            position: relative;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><path d="M0,20 Q500,80 1000,20 L1000,0 L0,0 Z"></path></svg>');
+            background-size: 100% 100px;
+            animation: wave 8s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .title-main {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .title-sub {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            opacity: 0.9;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .btn-custom {
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary-custom:hover {
+            background: white;
+            color: var(--text-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Floating Cards */
+        .floating-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+        }
+
+        .floating-card:nth-child(1) { animation-delay: 0s; }
+        .floating-card:nth-child(2) { animation-delay: 2s; }
+        .floating-card:nth-child(3) { animation-delay: 4s; }
+
+        .floating-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .floating-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .tools-section h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tools-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 3rem;
+        }
+
+        .tools-image:hover {
+            transform: scale(1.02);
+        }
+
+        .tool-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            height: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .tool-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .tool-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tool-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .contact-info-tools {
+            background: linear-gradient(135deg, var(--bg-light), var(--border-color));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 3rem;
+        }
+
+        .contact-info-tools a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info-tools a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: clamp(1rem, 1.5vw, 1.3rem);
+            color: var(--text-light);
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+            height: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(360deg);
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.3rem, 1.5vw, 1.6rem);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+        }
+
+        .service-card li {
+            padding: 0.7rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature i {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .feature span {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 350px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .image-placeholder:hover {
+            transform: scale(1.03);
+        }
+
+        .image-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .contact-item-card {
+            display: flex;
+            align-items: flex-start;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            height: 100%;
+        }
+
+        .contact-item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+        }
+
+        .contact-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .contact-details h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control {
+            padding: 14px 18px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .footer-logo .logo-icon i {
+            font-size: 1.2rem;
+            color: white;
+            position: absolute;
+        }
+
+        .footer-logo .logo-icon i:first-child {
+            transform: translateX(-3px);
+        }
+
+        .footer-logo .logo-icon i:last-child {
+            transform: translateX(3px);
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-section p {
+            color: #ccc;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-section p i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+            width: 16px;
+        }
+
+        .footer-section p a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section p a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-50px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-secondary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #0056b3, #e55a2b);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+                padding: 120px 0 60px;
+            }
+            
+            .floating-card {
+                margin: 0.5rem;
+            }
+            
+            .btn-custom {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+                max-width: 300px;
+            }
+            
+            .tools-section, .services, .about, .contact {
+                padding: 60px 0;
+            }
+            
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-float a {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-float i {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-item-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .image-placeholder {
+                height: 250px;
+            }
+            
+            .image-placeholder i {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-icon">
-                    <a href="#home"><img src="AAE-Logo.png" alt="Al Amir Logo"></a>
-                </div>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="AAE-Logo.png" alt="Al Amir Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-main">Al Amir Electromechanical LLC</span>
-                    <span class="title-sub">الأمير الكتروميكانيكية ذ.م.م</span>
-                </h1>
-                <p class="hero-description">
-                    Professional Ship Services, AC Services, Electrical, Plumbing, and Maintenance Solutions in Fujairah, UAE
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Connect Us</a>
-                    <a href="#services" class="btn btn-secondary">Our Services</a>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <div class="title-main">Al Amir Electromechanical LLC</div>
+                            <div class="title-sub">الأمير الكتروميكانيكية ذ.م.م</div>
+                        </h1>
+                        <p class="hero-description">
+                            Professional Ship Services, AC Services, Electrical, Plumbing, and Maintenance Solutions in Fujairah, UAE
+                        </p>
+                        <div class="hero-buttons text-center text-lg-start">
+                            <a href="#contact" class="btn-custom btn-primary-custom">Connect Us</a>
+                            <a href="#services" class="btn-custom btn-secondary-custom">Our Services</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="floating-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>24/7 Service</h3>
-                    <p>Emergency repairs available</p>
-                </div>
-                <div class="floating-card">
-                    <i class="fas fa-certificate"></i>
-                    <h3>Certified</h3>
-                    <p>Licensed professionals</p>
-                </div>
-                <div class="floating-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Trusted</h3>
-                    <p>Years of experience</p>
+                <div class="col-lg-6 col-md-12">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="floating-card">
+                                <i class="fas fa-tools"></i>
+                                <h3>24/7 Service</h3>
+                                <p>Emergency repairs available</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="floating-card">
+                                <i class="fas fa-certificate"></i>
+                                <h3>Certified</h3>
+                                <p>Licensed professionals</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="floating-card">
+                                <i class="fas fa-handshake"></i>
+                                <h3>Trusted</h3>
+                                <p>Years of experience</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,52 +914,60 @@
     <section class="tools-section">
         <div class="container">
             <h2>Our Industrial Tools</h2>
-            <div class="tools-image-container">
+            <div class="text-center">
                 <img src="img1.jpg" alt="Industrial Tools" class="tools-image">
             </div>
-            <div class="tools-content">
-                <p>
-                    At Al Amir Electromechanical LLC, we utilize advanced industrial tools to ensure safety and efficiency. Our equipment includes:
-                </p>
-                <div class="tools-grid">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="text-center mb-4">
+                        At Al Amir Electromechanical LLC, we utilize advanced industrial tools to ensure safety and efficiency. Our equipment includes:
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-3 col-md-6">
+                    <div class="tool-item">
+       <i class="fas fa-search"></i>
+                        <h4>UTI Detector</h4>
+                            <p>Available for rent, featuring MMC tapes and interface detectors. Trusted by surveyors and terminal operations, certified for marine tankers and terminals.</p>                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <div class="tool-item">
                         <i class="fas fa-search"></i>
-                        <h4>UTI Detector</h4>
-                        <p>Available for rent, featuring MMC tapes and interface detectors. Trusted by surveyors and terminal operations, certified for marine tankers and terminals.</p>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-gas-pump"></i>
                         <h4>Area Gas Monitor</h4>
                         <p>Monitors gas levels over wide areas with advanced sensors for maximum safety.</p>
                     </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <div class="tool-item">
                         <i class="fas fa-thermometer-half"></i>
                         <h4>Pressure & Temperature</h4>
                         <p>Precision gauges from WIKA for accurate measurements in all conditions.</p>
                     </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <div class="tool-item">
                         <i class="fas fa-mobile-alt"></i>
                         <h4>Portable Gas Monitors</h4>
                         <p>Handheld devices from Honeywell and Riken Keiki for on-the-go gas detection.</p>
                     </div>
                 </div>
-                <div class="tools-brands">
-                    <p><strong>Trusted Brands:</strong> Honeywell, Riken Keiki, WIKA, SIKA</p>
-                </div>
             </div>
-            <div class="contact-info">
-                <p><strong>Contact Us:</strong>
-                    <br>
-                    <span class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+971543706123">+971 543706123</a>
-                    </span>
-<br>
-                    <span class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:alamirsales25@gmail.com">alamirsales25@gmail.com</a>
-                    </span>
-                </p>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-3">
+                        <p><strong>Trusted Brands:</strong> Honeywell, Riken Keiki, WIKA, SIKA</p>
+                    </div>
+                    <div class="contact-info-tools">
+                        <p><strong>Contact us for equipment rental:</strong><br>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+971543706123">+971 543706123</a>
+                            <br>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:alamirsales25@gmail.com">alamirsales25@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -137,104 +979,118 @@
                 <h2>Our Services</h2>
                 <p>Comprehensive electromechanical solutions for your needs</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="ship.jpg" alt="Ship Services" class="service-image">
-                    <div class="service-icon">
-                        <i class="fas fa-ship"></i>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="ship.jpg" alt="Ship Services" class="service-image">
+                        <div class="service-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3>Ship Services</h3>
+                        <ul>
+                            <li>Gas Monitor for Purge Operation and Cargo Operation</li>
+                            <li>Multi-Gas Monitor for Rent (HE, CO, H₂S, and O₂ Covered)</li>
+                            <li>Fully Calibrated, Job-Ready Rental Monitors</li>
+                            <li>Fast Delivery, Flexible Rental Options</li>
+                        </ul>
                     </div>
-                    <h3>Ship Services</h3>
-                    <ul>
-                        <li>Gas Monitor for Purge Operation and Cargo Operation</li>
-                        <li>Multi-Gas Monitor for Rent (HE, CO, H₂S, and O₂ Covered)</li>
-                        <li>Fully Calibrated, Job-Ready Rental Monitors</li>
-                        <li>Fast Delivery, Flexible Rental Options</li>
-                    </ul>
                 </div>
-                <div class="service-card">
-                    <img src="https://i.pinimg.com/736x/d2/94/7c/d2947cf4a6f51272c2c694ab48373224.jpg" alt="AC Services" class="service-image">
-                    <div class="service-icon">
-                        <i class="fas fa-snowflake"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="https://i.pinimg.com/736x/d2/94/7c/d2947cf4a6f51272c2c694ab48373224.jpg" alt="AC Services" class="service-image">
+                        <div class="service-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h3>AC Services</h3>
+                        <ul>
+                            <li>AC Repair Service</li>
+                            <li>AC Installation Services</li>
+                            <li>AC Uninstallation Services</li>
+                            <li>AC Piping Services</li>
+                            <li>AC Gas Filling Services</li>
+                            <li>AC AMC Services</li>
+                        </ul>
                     </div>
-                    <h3>AC Services</h3>
-                    <ul>
-                        <li>AC Repair Service</li>
-                        <li>AC Installation Services</li>
-                        <li>AC Uninstallation Services</li>
-                        <li>AC Piping Services</li>
-                        <li>AC Gas Filling Services</li>
-                        <li>AC AMC Services</li>
-                    </ul>
                 </div>
-                <div class="service-card">
-                    <img src="https://i.pinimg.com/1200x/0b/69/b6/0b69b6436d2c4be90bfd5bbae5dc8cd7.jpg" alt="Electrical Services" class="service-image">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="https://i.pinimg.com/1200x/0b/69/b6/0b69b6436d2c4be90bfd5bbae5dc8cd7.jpg" alt="Electrical Services" class="service-image">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Electrical Services</h3>
+                        <ul>
+                            <li>Electrical Installations</li>
+                            <li>Wiring & Rewiring</li>
+                            <li>Switch & Socket Installation</li>
+                            <li>Electrical Maintenance</li>
+                            <li>Electrical Repairs</li>
+                        </ul>
                     </div>
-                    <h3>Electrical Services</h3>
-                    <ul>
-                        <li>Electrical Installations</li>
-                        <li>Wiring & Rewiring</li>
-                        <li>Switch & Socket Installation</li>
-                        <li>Electrical Maintenance</li>
-                        <li>Electrical Repairs</li>
-                    </ul>
                 </div>
-                <div class="service-card">
-                    <img src="https://i.pinimg.com/736x/f6/76/1d/f6761db73758139be3247097595433b5.jpg" alt="Plumbing Services" class="service-image">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="https://i.pinimg.com/736x/f6/76/1d/f6761db73758139be3247097595433b5.jpg" alt="Plumbing Services" class="service-image">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3>Plumbing Services</h3>
+                        <ul>
+                            <li>Pipe Installation</li>
+                            <li>Leak Repairs</li>
+                            <li>Bathroom Fitting</li>
+                            <li>Kitchen Plumbing</li>
+                            <li>Water Heater Service</li>
+                        </ul>
                     </div>
-                    <h3>Plumbing Services</h3>
-                    <ul>
-                        <li>Pipe Installation</li>
-                        <li>Leak Repairs</li>
-                        <li>Bathroom Fitting</li>
-                        <li>Kitchen Plumbing</li>
-                        <li>Water Heater Service</li>
-                    </ul>
                 </div>
-                <div class="service-card">
-                    <img src="https://i.pinimg.com/1200x/9f/13/7d/9f137d97fbfc2ac2963585389ad7f23e.jpg" alt="Painting Services" class="service-image">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-roller"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="https://i.pinimg.com/1200x/9f/13/7d/9f137d97fbfc2ac2963585389ad7f23e.jpg" alt="Painting Services" class="service-image">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h3>Painting Services</h3>
+                        <ul>
+                            <li>Interior Painting</li>
+                            <li>Exterior Painting</li>
+                            <li>Wall Preparation</li>
+                            <li>Color Consultation</li>
+                            <li>Quality Finishes</li>
+                        </ul>
                     </div>
-                    <h3>Painting Services</h3>
-                    <ul>
-                        <li>Interior Painting</li>
-                        <li>Exterior Painting</li>
-                        <li>Wall Preparation</li>
-                        <li>Color Consultation</li>
-                        <li>Quality Finishes</li>
-                    </ul>
                 </div>
-                <div class="service-card">
-                    <img src="https://i.pinimg.com/736x/88/33/b1/8833b1d01c392d90f51eb4b789d28b7e.jpg" alt="CCTV Services" class="service-image">
-                    <div class="service-icon">
-                        <i class="fas fa-video"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <img src="https://i.pinimg.com/736x/88/33/b1/8833b1d01c392d90f51eb4b789d28b7e.jpg" alt="CCTV Services" class="service-image">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>CCTV Services</h3>
+                        <ul>
+                            <li>CCTV Installation</li>
+                            <li>Security System Setup</li>
+                            <li>Camera Maintenance</li>
+                            <li>Monitoring Solutions</li>
+                            <li>System Upgrades</li>
+                        </ul>
                     </div>
-                    <h3>CCTV Services</h3>
-                    <ul>
-                        <li>CCTV Installation</li>
-                        <li>Security System Setup</li>
-                        <li>Camera Maintenance</li>
-                        <li>Monitoring Solutions</li>
-                        <li>System Upgrades</li>
-                    </ul>
                 </div>
-                <div class="service-card">
-                    <img src="https://i.pinimg.com/1200x/1c/99/e0/1c99e01ef08a95569c52b9a4015f2e83.jpg" alt="Flooring & Tiles" class="service-image">
-                    <div class="service-icon">
-                        <i class="fas fa-th-large"></i>
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="service-card">
+                        <img src="https://i.pinimg.com/1200x/1c/99/e0/1c99e01ef08a95569c52b9a4015f2e83.jpg" alt="Flooring & Tiles" class="service-image">
+                        <div class="service-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <h3>Flooring & Tiles</h3>
+                        <ul>
+                            <li>Tile Installation</li>
+                            <li>Floor Renovation</li>
+                            <li>Marble & Granite</li>
+                            <li>Ceramic Tiles</li>
+                            <li>Floor Maintenance</li>
+                        </ul>
                     </div>
-                    <h3>Flooring & Tiles</h3>
-                    <ul>
-                        <li>Tile Installation</li>
-                        <li>Floor Renovation</li>
-                        <li>Marble & Granite</li>
-                        <li>Ceramic Tiles</li>
-                        <li>Floor Maintenance</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -243,37 +1099,41 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Al Amir Electromechanical LLC</h2>
-                    <p>
-                        Al Amir Electromechanical LLC is a leading provider of comprehensive electromechanical services in the UAE.
-                        With years of experience and a commitment to excellence, we specialize in AC services, electrical work,
-                        plumbing, painting, CCTV installation, and flooring solutions.
-                    </p>
-                    <p>
-                        Our team of certified professionals is dedicated to delivering high-quality services that meet and exceed
-                        our clients' expectations. We pride ourselves on reliability, professionalism, and competitive pricing.
-                    </p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Licensed & Certified</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-clock"></i>
-                            <span>24/7 Emergency Service</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-star"></i>
-                            <span>Quality Guaranteed</span>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h2>About Al Amir Electromechanical LLC</h2>
+                        <p>
+                            Al Amir Electromechanical LLC is a leading provider of comprehensive electromechanical services in the UAE.
+                            With years of experience and a commitment to excellence, we specialize in AC services, electrical work,
+                            plumbing, painting, CCTV installation, and flooring solutions.
+                        </p>
+                        <p>
+                            Our team of certified professionals is dedicated to delivering high-quality services that meet and exceed
+                            our clients' expectations. We pride ourselves on reliability, professionalism, and competitive pricing.
+                        </p>
+                        <div class="about-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Licensed & Certified</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>24/7 Emergency Service</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-star"></i>
+                                <span>Quality Guaranteed</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-building"></i>
-                        <p>Professional Team at Work</p>
+                <div class="col-lg-6">
+                    <div class="about-image text-center">
+                        <div class="image-placeholder">
+                            <i class="fas fa-building"></i>
+                            <p>Professional Team at Work</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -287,78 +1147,90 @@
                 <h2>Contact Us</h2>
                 <p>Get in touch for professional electromechanical services</p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info-section">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-item-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Location</h3>
+                                    <p>Fujairah, UAE</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>Fujairah, UAE</p>
+                        <div class="col-md-6">
+                            <div class="contact-item-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Phone</h3>
+                                    <p><a href="tel:+971545746123">054-5746123</a></p>
+                                    <p><a href="tel:+971506795124">050-6795124</a></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                        <div class="col-md-6">
+                            <div class="contact-item-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Email</h3>
+                                    <p><a href="mailto:alamirelectromechanical@gmail.com">alamirelectromechanical@gmail.com</a></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p><a href="tel:+971545746123">054-5746123</a></p>
-                            <p><a href="tel:+971506795124">050-6795124</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p><a href="mailto:alamirelectromechanical@gmail.com">alamirelectromechanical@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Website</h3>
-                            <p>amirelectromechanical.com</p>
+                        <div class="col-md-6">
+                            <div class="contact-item-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Website</h3>
+                                    <p>amirelectromechanical.com</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="Your Phone">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option value="">Select Service</option>
+                                        <option value="ship">Ship Services</option>
+                                        <option value="ac">AC Services</option>
+                                        <option value="electrical">Electrical Services</option>
+                                        <option value="plumbing">Plumbing Services</option>
+                                        <option value="painting">Painting Services</option>
+                                        <option value="cctv">CCTV Services</option>
+                                        <option value="flooring">Flooring & Tiles</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" placeholder="Your Message" rows="5"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-custom btn-primary-custom w-100">Send Message</button>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="tel" id="phone" name="phone" placeholder="Your Phone">
-                            </div>
-                            <div class="form-group">
-                                <select id="service" name="service">
-                                    <option value="">Select Service</option>
-                                    <option value="ship">Ship Services</option>
-                                    <option value="ac">AC Services</option>
-                                    <option value="electrical">Electrical Services</option>
-                                    <option value="plumbing">Plumbing Services</option>
-                                    <option value="painting">Painting Services</option>
-                                    <option value="cctv">CCTV Services</option>
-                                    <option value="flooring">Flooring & Tiles</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -374,41 +1246,49 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-snowflake"></i>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <span class="logo-text">AAE</span>
                         </div>
-                        <span class="logo-text">AAE</span>
+                        <p>Professional electromechanical services you can trust.</p>
                     </div>
-                    <p>Professional electromechanical services you can trust.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li>Ship Services</li>
-                        <li>AC Services</li>
-                        <li>Electrical Work</li>
-                        <li>CCTV Installation</li>
-                    </ul>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h3>Services</h3>
+                        <ul>
+                            <li>Ship Services</li>
+                            <li>AC Services</li>
+                            <li>Electrical Work</li>
+                            <li>CCTV Installation</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><strong>JOJI GEORGE</strong></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+971545746123">054-5746123</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:alamirelectromechanical@gmail.com">alamirelectromechanical@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Fujairah, UAE</p>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h3>Contact Info</h3>
+                        <p><strong>JOJI GEORGE</strong></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+971545746123">054-5746123</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:alamirelectromechanical@gmail.com">alamirelectromechanical@gmail.com</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Fujairah, UAE</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -417,24 +1297,10 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        // Mobile menu toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on nav links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
@@ -457,13 +1323,25 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
+                }
+            });
+        });
+
+        // Auto-close navbar on mobile when clicking links
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('show')) {
+                    bootstrap.Collapse.getInstance(navbarCollapse).hide();
                 }
             });
         });
     </script>
 </body>
-</html>
